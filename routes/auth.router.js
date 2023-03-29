@@ -1,5 +1,5 @@
 const express = require('express');
-const auth = require('../utils/auth')
+const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
 const { config } = require('./../config/config');
@@ -7,7 +7,7 @@ const { config } = require('./../config/config');
 const router = express.Router();
 
 router.post('/login',
-  auth.authenticate('local', {session: false}),
+  passport.authenticate('local', {session: false}),
   async (req, res, next) => {
     try {
       const user = req.user;
@@ -25,5 +25,6 @@ router.post('/login',
     }
   }
 );
+
 
 module.exports = router;
