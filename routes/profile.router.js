@@ -19,5 +19,16 @@ router.get('/my-orders',
   }
 );
 
+router.post('/my-orders',
+  passport.authenticate('jwt', {session: false}),
+  async (req, res, next) => {
+    const data = { id: req.user.sub };
+    try {
+      res.status(201).json(await service.createFromProfile(data));
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;

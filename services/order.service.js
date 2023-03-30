@@ -32,6 +32,12 @@ class OrderService {
     return orders;
   }
 
+  async createFromProfile(data) {
+    const user = await service.findOne(data.id);
+    const customerId = user.customer.id;
+    return models.Order.create({ customerId });
+  }
+
   async find() {
     return [];
   }
