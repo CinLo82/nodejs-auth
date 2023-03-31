@@ -7,8 +7,8 @@ const config = {
   dbUrl: process.env.DATABASE_URL,
   apiKey: process.env.API_KEY,
   jwtSecret: process.env.JWT_SECRET,
-  emailSender: process.env.EMAIL_SENDER,
-  emailPassword: process.env.EMAIL_PASSWORD,
+  smtpSender: process.env.SMTP_SENDER,
+  smtpPassword: process.env.SMTP_PASSWORD,
   host: process.env.HOST,
 
 }
